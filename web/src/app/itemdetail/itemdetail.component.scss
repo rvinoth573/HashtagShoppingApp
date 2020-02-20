@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+  mat-card {
+    margin-left: 8px;
+    margin-bottom: 8px;
+  }
+
+  .app-toolbar {
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+.example-icon {
+    padding: 0 14px;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .mat-toolbar {
+    background: white;
+    color: darkgray;
+}
+
+    #amt{
+    margin-left: 0px;
+    background-color: #36231f;
+    color: #fff;
+}
+
+  

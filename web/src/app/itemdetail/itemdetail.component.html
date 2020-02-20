@@ -1,0 +1,70 @@
+<mat-toolbar class="app-toolbar">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon (click)="navigation()">keyboard_arrow_left</mat-icon>
+        </button>
+        <span class="menu-spacer"></span>
+        <mat-label>{{item?.name}}</mat-label>
+        <span class="example-spacer"></span>
+        <!-- <mat-search-bar></mat-search-bar> -->
+        <mat-icon class="example-icon">search</mat-icon>
+        <mat-icon class="example-icon">cloud_upload</mat-icon>
+    </mat-toolbar-row>
+
+</mat-toolbar>
+
+<div fxLayout="row wrap" fxLayoutAlign="space-evenly" fxflexfill fxLayoutGap="0px grid" class="">
+    <div fxFlex="50" fxFlex.xs="100">
+        <mat-card *ngIf="item">
+
+            <mat-card-title>
+                <swiper [config]="config" [(index)]="index">
+                    <div>
+                        <img mat-card-image class="" [src]="item.image">
+                    </div>
+                </swiper>
+            </mat-card-title>
+            <mat-card-subtitle> <span class="f-21"> {{item.name}} </span></mat-card-subtitle>
+
+            <mat-card-content>
+                <div>
+                    <mat-chip-list>
+                        <mat-chip (click)="likeCount()">
+                            <mat-icon>favorite_border</mat-icon>Like
+                        </mat-chip>
+                        <span fxLayoutAlign="start center" class="f-21">{{item.like_count}}</span>
+                        <mat-chip>
+                            <mat-icon>comment</mat-icon>comment
+                        </mat-chip>
+
+                        <span fxLayoutAlign="start center" class="f-21">{{item.comment_count}}</span>
+
+                        <mat-chip>
+                            <mat-icon>flag</mat-icon>
+                        </mat-chip>
+
+                    </mat-chip-list>
+                </div>
+            </mat-card-content>
+            <mat-card-content>
+                <div fxLayout="row wrap" fxLayoutAlign="" fxLayoutGap="">
+                    <span class="p-t-10 f-21">{{item.description}}</span>
+                </div>
+            </mat-card-content>
+            <mat-card-content>
+                <mat-card id="amt">
+                    <div fxLayout="row wrap" fxLayoutAlign="space-between">
+                        <div fxLayout="row" fxLayoutAlign="" fxLayoutGap="5%">
+                            <span fxFlex fxLayoutAlign="center end" class="f-21">{{item.price | currency:"₹"}}</span>
+                            <span fxFlex fxLayoutAlign="center end">{{item.shipping_fee}}</span>
+                        </div>
+                        <div *ngIf="!item.is_sold_out" fxLayout="column" fxLayoutAlign="" fxLayoutGap="10%">
+                            <button mat-flat-button color="warn">Buy Now</button>
+                        </div>
+                    </div>
+
+                </mat-card>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

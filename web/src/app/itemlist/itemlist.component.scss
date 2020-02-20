@@ -1,0 +1,99 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+// .item {
+//     margin: 5px;
+// }
+
+// .triangle-topleft {
+//     width: 0;
+//     height: 0;
+//     border-top: 100px solid red;
+//     border-right: 100px solid transparent;
+//   }
+
+
+
+//   .special-offer {
+//       position: relative;
+//   }
+ 
+  .special-offer::before,
+  .special-offer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-color: transparent;
+      border-style: solid;
+  }
+  .special-offer::before {
+      border-width: 40px;
+      border-left-color: #D33D3D;
+      border-top-color: #D33D3D;
+      z-index: 3;
+  }
+  .special-offer::after {
+    //   content: 'On \A Sale';
+    content: 'Sold';
+      top: 15px;
+      left: 5px;
+      z-index: 4;
+      text-transform: uppercase;
+      color: #fff;
+      white-space: pre;
+    //   font-size: 34px;
+      letter-spacing: 1px;
+    //   line-height: 34px;
+      text-align: center;
+      -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+  }
+
+  mat-card {
+    margin-left: 8px;
+    margin-bottom: 8px;
+  }
+
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .app-toolbar {
+    position: fixed;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+.example-icon {
+    padding: 0 14px;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .search{
+    border-radius: 5px;
+    // border: none;
+    height: 30px;
+    width: 15em;
+    padding-left: 5px;
+    border-color: darkgray;
+  }
+
+  .mat-toolbar {
+    background: white;
+    color: darkgray;
+}

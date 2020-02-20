@@ -1,0 +1,58 @@
+<mat-toolbar class="app-toolbar">
+    <mat-toolbar-row>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <div *ngFor="let category of categoryList?.data; let i = index">
+                <mat-checkbox class="mat-menu-item" [checked]="category?.checked" (change)="selectAndDeSelect(category.id,i, $event)" #checkAll>{{category.name}}</mat-checkbox>
+            </div>
+        </mat-menu>
+
+        <span class="menu-spacer"></span>
+
+        <!-- <mat-form-field appearance="outline"> -->
+        <input class="search" [(ngModel)]="searchText" matInput />
+        <!-- </mat-form-field> -->
+        <span class="example-spacer"></span>
+        <mat-icon class="example-icon">notifications</mat-icon>
+        <mat-icon class="example-icon">done</mat-icon>
+    </mat-toolbar-row>
+
+</mat-toolbar>
+<ng-container *ngIf="( tempList?.data | filter : 'name':searchText) as result">
+    <div fxFill fxLayout="column" style="padding-top: 65px">
+        <div fxLayout="row wrap" fxLayoutAlign="space-evenly" fxflexfill fxLayoutGap="0px grid" class="">
+            <div *ngFor="let item of result" fxFlex="25" fxFlex.xs="50">
+
+                <mat-card>
+                    <div class="" (click)="itemClick(item.id)" [ngClass]="{'special-offer': item.is_sold_out}">
+                        <img mat-card-image class="" [src]="item.image">
+                    </div>
+                    <mat-card-content>
+                        <div fxLayout="row wrap" class="f-md">
+                            <span> {{item.name}} </span>
+                        </div>
+                        <div fxLayout="row wrap" class="f-md" fxLayoutAlign="space-between">
+                            <div> {{item.price}} </div>
+                            <div fxLayout="row">
+
+                                <mat-icon>favorite_border</mat-icon>
+                                <span>{{item.like_count}}</span>
+
+
+                                <mat-icon>comment</mat-icon>
+                                <span>{{item.comment_count}}</span>
+
+                            </div>
+
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+
+            </div>
+        </div>
+        <mat-card *ngIf="result.length === 0">No Result</mat-card>
+    </div>
+</ng-container>
